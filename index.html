@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maridadi Cars</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:url('background.jpg') no-repeat center center fixed;
+    background-size:cover;
+    background-color:#f5f2eb;
+    text-align:center;
+}
+
+/* OVERLAY */
+
+.overlay{
+    background:rgba(0,0,0,0.45);
+    min-height:100vh;
+    padding-bottom:50px;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:60px;
+    letter-spacing:4px;
+    margin-bottom:10px;
+    color:#b8963c;
+}
+
+.hero p{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.hero-btns{
+    margin-top:30px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-btns a{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:40px;
+    background:#b8963c;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero-btns a:hover{
+    transform:scale(1.05);
+}
+
+/* TOP */
+
+.logo-container{
+    display:inline-block;
+    background-color:#f5f2eb;
+    border-radius:10px;
+    padding:5px;
+    margin-top:30px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+.logo{
+    width:180px;
+    display:block;
+}
+
+h2{
+    color:#b8963c;
+    letter-spacing:3px;
+    margin-bottom:5px;
+}
+
+.sub{
+    color:#b8963c;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* DIVIDER */
+
+.divider{
+    width:120px;
+    height:2px;
+    background:#b8963c;
+    margin:10px auto 20px;
+    position:relative;
+}
+
+.divider::after{
+    content:"◆";
+    position:absolute;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#b8963c;
+    font-size:12px;
+}
+
+/* NAV */
+
+.bar{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    background:rgba(255,255,255,0.85);
+    padding:10px;
+    border-radius:30px;
+    max-width:900px;
+    margin:20px auto;
+    flex-wrap:wrap;
+}
+
+.bar button{
+    border:none;
+    background:none;
+    color:#b8963c;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    max-width:1100px;
+    margin:20px auto;
+    padding:0 15px;
+}
+
+.item{
+    aspect-ratio:1/1;
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 5px 20px rgba(184,150,60,0.15);
+    transition:0.3s;
+    background:white;
+}
+
+.item:hover{
+    transform:scale(1.03);
+}
+
+.item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+.desc{
+    font-size:13px;
+    color:#b8963c;
+    margin-top:5px;
+    font-weight:bold;
+}
+
+/* EXPAND */
+
+.expand{
+    display:none;
+    margin:30px auto;
+}
+
+.expand img{
+    width:90%;
+    max-width:700px;
+    border-radius:10px;
+}
+
+.expand p{
+    color:white;
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,#0a0a2a,#1a1a40);
+    color:#b8963c;
+    padding:50px 20px;
+    margin:40px auto;
+    max-width:900px;
+    border-radius:10px;
+}
+
+/* FEATURES */
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:40px auto;
+    max-width:1000px;
+    color:#b8963c;
+    flex-wrap:wrap;
+}
+
+.features div{
+    max-width:220px;
+}
+
+.features h3{
+    font-size:13px;
+}
+
+.features p{
+    font-size:11px;
+    opacity:0.8;
+}
+
+/* CATEGORIES */
+
+.category{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
+/* WHATSAPP */
+
+.whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:14px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+    z-index:1000;
+}
+
+.whatsapp-btn:hover{
+    background:#20b858;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+}
+
+@media(max-width:500px){
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>MARIDADI CARS</h1>
+
+<p>
+Luxury. Comfort. Presence.
+Discover premium vehicles built for performance, status and everyday excellence.
+</p>
+
+<div class="hero-btns">
+<a href="#cars">VIEW COLLECTION</a>
+<a href="https://wa.me/254700000000" target="_blank">WHATSAPP US</a>
+</div>
+
+</section>
+
+<!-- HEADER -->
+
+<div id="cars" class="logo-container">
+<img src="logo.png" class="logo">
+</div>
+
+<h2>MARIDADI CARS</h2>
+<p class="sub">THE PREMIUM CAR EXPERIENCE</p>
+
+<div class="divider"></div>
+
+<!-- NAV -->
+
+<div class="bar">
+
+<button onclick="show('suvs')">SUVS</button>
+
+<button onclick="show('sedans')">SEDANS</button>
+
+<button onclick="show('pickups')">PICKUPS</button>
+
+<button onclick="show('luxury')">LUXURY</button>
+
+<button onclick="show('family')">FAMILY CARS</button>
+
+</div>
+
+<!-- EXPAND -->
+
+<div id="expand" class="expand">
+<img id="expandImg">
+<p id="expandText"></p>
+</div>
+
+<!-- SUVS -->
+
+<div id="suvs" class="category active">
+
+<div class="grid">
+
+<div onclick="expand('maridadi_cars/range_sport.jpg','Range Rover Sport')">
+<div class="item"><img src="maridadi_cars/range_sport.jpg"></div>
+<div class="desc">Range Rover Sport</div>
+</div>
+
+<div onclick="expand('maridadi_cars/prado.jpg','Toyota Prado')">
+<div class="item"><img src="maridadi_cars/prado.jpg"></div>
+<div class="desc">Toyota Prado</div>
+</div>
+
+<div onclick="expand('maridadi_cars/land_cruiser_v8.jpg','Land Cruiser V8')">
+<div class="item"><img src="maridadi_cars/land_cruiser_v8.jpg"></div>
+<div class="desc">Land Cruiser V8</div>
+</div>
+
+<div onclick="expand('maridadi_cars/g_wagon.jpg','Mercedes G Wagon')">
+<div class="item"><img src="maridadi_cars/g_wagon.jpg"></div>
+<div class="desc">Mercedes G Wagon</div>
+</div>
+
+<div onclick="expand('maridadi_cars/gle.jpg','Mercedes GLE')">
+<div class="item"><img src="maridadi_cars/gle.jpg"></div>
+<div class="desc">Mercedes GLE</div>
+</div>
+
+<div onclick="expand('maridadi_cars/forester.jpg','Subaru Forester')">
+<div class="item"><img src="maridadi_cars/forester.jpg"></div>
+<div class="desc">Subaru Forester</div>
+</div>
+
+<div onclick="expand('maridadi_cars/x_trail.jpg','Nissan X Trail')">
+<div class="item"><img src="maridadi_cars/x_trail.jpg"></div>
+<div class="desc">Nissan X Trail</div>
+</div>
+
+<div onclick="expand('maridadi_cars/mazda.jpg','Mazda CX Series')">
+<div class="item"><img src="maridadi_cars/mazda.jpg"></div>
+<div class="desc">Mazda CX Series</div>
+</div>
+
+<div onclick="expand('maridadi_cars/lexus.jpg','Lexus SUV')">
+<div class="item"><img src="maridadi_cars/lexus.jpg"></div>
+<div class="desc">Lexus SUV</div>
+</div>
+
+</div>
+</div>
+
+<!-- SEDANS -->
+
+<div id="sedans" class="category">
+
+<div class="grid">
+
+<div onclick="expand('maridadi_cars/atenza.jpg','Mazda Atenza')">
+<div class="item"><img src="maridadi_cars/atenza.jpg"></div>
+<div class="desc">Mazda Atenza</div>
+</div>
+
+<div onclick="expand('maridadi_cars/axio.jpg','Toyota Axio')">
+<div class="item"><img src="maridadi_cars/axio.jpg"></div>
+<div class="desc">Toyota Axio</div>
+</div>
+
+<div onclick="expand('maridadi_cars/bluebird.jpg','Nissan Bluebird')">
+<div class="item"><img src="maridadi_cars/bluebird.jpg"></div>
+<div class="desc">Nissan Bluebird</div>
+</div>
+
+<div onclick="expand('maridadi_cars/c_class.jpg','Mercedes C Class')">
+<div class="item"><img src="maridadi_cars/c_class.jpg"></div>
+<div class="desc">Mercedes C Class</div>
+</div>
+
+<div onclick="expand('maridadi_cars/premio.jpg','Toyota Premio')">
+<div class="item"><img src="maridadi_cars/premio.jpg"></div>
+<div class="desc">Toyota Premio</div>
+</div>
+
+</div>
+</div>
+
+<!-- PICKUPS -->
+
+<div id="pickups" class="category">
+
+<div class="grid">
+
+<div onclick="expand('maridadi_cars/d_max.jpg','Isuzu D Max')">
+<div class="item"><img src="maridadi_cars/d_max.jpg"></div>
+<div class="desc">Isuzu D Max</div>
+</div>
+
+<div onclick="expand('maridadi_cars/ford_ranger.jpg','Ford Ranger')">
+<div class="item"><img src="maridadi_cars/ford_ranger.jpg"></div>
+<div class="desc">Ford Ranger</div>
+</div>
+
+<div onclick="expand('maridadi_cars/hilux.jpg','Toyota Hilux')">
+<div class="item"><img src="maridadi_cars/hilux.jpg"></div>
+<div class="desc">Toyota Hilux</div>
+</div>
+
+</div>
+</div>
+
+<!-- LUXURY -->
+
+<div id="luxury" class="category">
+
+<div class="grid">
+
+<div onclick="expand('maridadi_cars/bmw.jpg','BMW Series')">
+<div class="item"><img src="maridadi_cars/bmw.jpg"></div>
+<div class="desc">BMW Series</div>
+</div>
+
+<div onclick="expand('maridadi_cars/porsche.jpg','Porsche')">
+<div class="item"><img src="maridadi_cars/porsche.jpg"></div>
+<div class="desc">Porsche</div>
+</div>
+
+<div onclick="expand('maridadi_cars/g_wagon.jpg','Mercedes G Wagon')">
+<div class="item"><img src="maridadi_cars/g_wagon.jpg"></div>
+<div class="desc">Mercedes G Wagon</div>
+</div>
+
+</div>
+</div>
+
+<!-- FAMILY -->
+
+<div id="family" class="category">
+
+<div class="grid">
+
+<div onclick="expand('maridadi_cars/noah.jpg','Toyota Noah')">
+<div class="item"><img src="maridadi_cars/noah.jpg"></div>
+<div class="desc">Toyota Noah</div>
+</div>
+
+<div onclick="expand('maridadi_cars/serena.jpg','Nissan Serena')">
+<div class="item"><img src="maridadi_cars/serena.jpg"></div>
+<div class="desc">Nissan Serena</div>
+</div>
+
+<div onclick="expand('maridadi_cars/boxy.jpg','Toyota Boxy')">
+<div class="item"><img src="maridadi_cars/boxy.jpg"></div>
+<div class="desc">Toyota Boxy</div>
+</div>
+
+</div>
+</div>
+
+<!-- CTA -->
+
+<div class="cta">
+<h2>FIND YOUR DREAM CAR TODAY</h2>
+<p>Luxury vehicles. Trusted quality. Premium experience.</p>
+</div>
+
+<!-- FEATURES -->
+
+<div class="divider"></div>
+
+<div class="features">
+
+<div>
+<h3>PREMIUM IMPORTS</h3>
+<p>High quality international vehicle selection</p>
+</div>
+
+<div>
+<h3>TRUSTED DEALERSHIP</h3>
+<p>Professional customer experience and support</p>
+</div>
+
+<div>
+<h3>LUXURY EXPERIENCE</h3>
+<p>Drive comfort, class and performance daily</p>
+</div>
+
+</div>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp-btn"
+href="https://wa.me/254700000000"
+target="_blank">
+
+Chat on WhatsApp
+
+</a>
+
+</div>
+
+<script>
+
+function show(id){
+
+document.querySelectorAll('.category').forEach(el=>{
+el.style.display='none';
+});
+
+document.getElementById(id).style.display='block';
+
+}
+
+function expand(img,text){
+
+let box=document.getElementById("expand");
+
+document.getElementById("expandImg").src=img;
+
+document.getElementById("expandText").innerText=text;
+
+box.style.display="block";
+
+box.scrollIntoView({behavior:'smooth'});
+
+}
+
+</script>
+
+</body>
+</html>
