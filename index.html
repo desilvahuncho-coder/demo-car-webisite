@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maridadi Cars</title>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Arial', serif;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+  linear-gradient(
+    rgba(255,248,242,0.25),
+    rgba(255,244,236,0.25)
+  ),
+  url('Background.PNG') no-repeat center center;
+
+  background-size: cover;
+  flex-direction: column;
+}
+
+/* VIDEO HERO */
+.hero-video {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+
+  margin-bottom: 30px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+/* TITLE */
+.title {
+  font-size: 56px;
+  color: #c7a27c;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+/* LINE */
+.line {
+  width: 80%;
+  height: 1px;
+  background: #e3c3a1;
+  margin: 20px auto;
+}
+
+/* TEXT */
+.text {
+  font-size: 22px;
+  color: #c7a27c;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+
+.sub {
+  font-size: 20px;
+  color: #c7a27c;
+  margin: 15px 0;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 36px;
+
+  background: rgba(11,11,45,0.85);
+
+  color: #e3c3a1;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid #e3c3a1;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e3c3a1;
+  color: black;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+
+  .title {
+    font-size: 38px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .sub {
+    font-size: 16px;
+  }
+
+  .hero-video {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+  <!-- HERO VIDEO -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+
+  <!-- TITLE -->
+  <div class="title">
+    MARIDADI<br>CARS
+  </div>
+
+  <div class="line"></div>
+
+  <div class="text">
+    SUVS • SEDANS • LUXURY • PICKUPS
+  </div>
+
+  <div class="sub">
+    PREMIUM CAR DEALERSHIP
+  </div>
+
+  <div class="line"></div>
+
+  <div class="sub">
+    DRIVE STATUS • DRIVE POWER • DRIVE LUXURY
+  </div>
+
+  <!-- UPDATED BUTTON -->
+  <a href="intro.html" class="btn">
+    VIEW CARS
+  </a>
+
+</div>
+
+</body>
+</html>
